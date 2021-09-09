@@ -15,7 +15,7 @@ export const Wrapper = styled.div`
   display: flex;
   align-items: center;
   height: 100%;
-  max-width: 97%;
+  max-width: 98%;
   margin: 0 auto;
   justify-content: space-between;
 `
@@ -123,6 +123,7 @@ export const MenuToggle = styled.div<MenuToggleProps>`
   justify-content: center;
   transform: scaleX(${props => (props.expanded ? '1' : '-1')});
   transition: transform 100ms linear;
+  cursor: pointer;
 
   @media (max-width: 993px) {
     display: none;

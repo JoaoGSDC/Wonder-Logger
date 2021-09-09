@@ -1,0 +1,22 @@
+.btn {
+  border: 0;
+  outline: 0;
+  min-width: 50%;
+  font-family: Poppins;
+  font-size: 1rem;
+  background: #52b032;
+  color: white;
+  height: 44px;
+  border-radius: 10px;
+  cursor: pointer;
+  user-select: none;
+  transition: background 400ms linear;
+}
+
+.btn:hover {
+  background: #418c28;
+}
+
+.swal2-popup {
+  border-radius: 24px !important;
+}

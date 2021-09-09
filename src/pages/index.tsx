@@ -13,7 +13,7 @@ const Dashboard: React.FC = () => {
 }
 
 export const getServerSideProps: GetServerSideProps = async context => {
-  const { 'wonder-token': token } = parseCookies(context)
+  const { 'megtv-token': token } = parseCookies(context)
 
   if (!token) {
     return {

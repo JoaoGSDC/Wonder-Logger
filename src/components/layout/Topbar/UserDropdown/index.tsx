@@ -1,5 +1,5 @@
 import { useContext, forwardRef, useRef } from 'react'
-import { RiLogoutCircleLine } from 'react-icons/ri'
+import { RiLogoutBoxRLine } from 'react-icons/ri'
 
 import { AuthContext } from '@contexts/AuthContext'
 
@@ -22,7 +22,7 @@ const UserDropdown: React.ForwardRefRenderFunction<any, UserDropdownProps> = (
     <Container ref={ref} isVisible={isVisible}>
       <DropdownItem
         action={() => signOut()}
-        icon={RiLogoutCircleLine}
+        icon={RiLogoutBoxRLine}
         title="Sair"
       />
     </Container>

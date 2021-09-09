@@ -27,8 +27,9 @@ import NoAvatar from '@assets/no-avatar.jpg'
 
 const TopBar: React.FC = () => {
   const { user } = useContext(AuthContext)
-  const { dashboardTitle, isExpanded, setIsExpanded } =
-    useContext(SidebarContext)
+  const { dashboardTitle, isExpanded, setIsExpanded } = useContext(
+    SidebarContext
+  )
 
   const [dropdownVisible, setDropdownVisible] = useState<boolean>(false)
 
@@ -52,11 +53,11 @@ const TopBar: React.FC = () => {
     <Container>
       <Wrapper>
         <Box>
-          <MenuToggle expanded={isExpanded}>
-            <RiMenuFoldFill
-              size={20}
-              onClick={() => setIsExpanded(!isExpanded)}
-            />
+          <MenuToggle
+            expanded={isExpanded}
+            onClick={() => setIsExpanded(!isExpanded)}
+          >
+            <RiMenuFoldFill size={20} />
           </MenuToggle>
           <LogoMobile />
           <Title>{dashboardTitle}</Title>

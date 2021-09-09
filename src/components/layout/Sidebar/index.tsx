@@ -7,7 +7,6 @@ import {
   RiSurveyLine,
   RiSettings4Line
 } from 'react-icons/ri'
-import SweetAlert from 'sweetalert2'
 
 import { SidebarContext } from '@contexts/SidebarContext'
 
@@ -18,9 +17,9 @@ import {
   Container,
   LogoContainer,
   LogoSmall,
-  LogoBig,
   SidebarHeader,
-  SidebarMenuContainer
+  SidebarMenuContainer,
+  HeaderTitle
 } from './styles'
 import HeaderMobile from './HeaderMobile'
 
@@ -32,7 +31,7 @@ const Sidebar: React.FC = () => {
       <SidebarHeader>
         <LogoContainer>
           <LogoSmall />
-          <LogoBig expanded={isExpanded} />
+          <HeaderTitle>Menu</HeaderTitle>
         </LogoContainer>
         <HeaderMobile />
       </SidebarHeader>

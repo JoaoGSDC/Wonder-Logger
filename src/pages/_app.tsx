@@ -5,6 +5,10 @@ import { useRouter } from 'next/router'
 import GlobalStyle from '@styles/global'
 import theme from '@styles/theme'
 
+import 'react-date-picker/dist/DatePicker.css'
+
+import '@styles/customs.css'
+
 import { SidebarProvider } from '@contexts/SidebarContext'
 import { AuthProvider } from '@contexts/AuthContext'
 

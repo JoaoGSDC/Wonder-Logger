@@ -13,11 +13,13 @@ import {
   Container,
   DialogContainer,
   LoginContainer,
-  LoginContainerHeader
+  LoginContainerHeader,
+  LogoTerraViva
 } from './styles'
 
 import { GetServerSideProps } from 'next'
 import { parseCookies } from 'nookies'
+import { useForm } from 'react-hook-form'
 
 type SignInData = {
   username: string
@@ -26,12 +28,13 @@ type SignInData = {
 
 const Login: React.FC = () => {
   const [signInLoading, setSignInLoading] = useState<boolean>(false)
+  const { handleSubmit, control, setValue } = useForm()
 
   const formRef = useRef<FormHandles>(null)
 
   const { signIn } = useContext(AuthContext)
 
-  const handleSubmit = useCallback(
+  const handleSubmits = useCallback(
     async (data: SignInData) => {
       setSignInLoading(true)
 
@@ -45,20 +48,22 @@ const Login: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Wonder Logger</title>
+        <title>Acesso ao sistema - MEGTV</title>
       </Head>
       <Container>
         <BackgroundOverlay>
           <DialogContainer>
-            <h1>Wonder Logger - Central de Logs</h1>
+            <h1>Modelo de Excelência em Gestão</h1>
+            <LogoTerraViva />
           </DialogContainer>
           <LoginContainer>
             <LoginContainerHeader>
               <h1>Acesso ao sistema</h1>
               <p>Digite suas informações</p>
             </LoginContainerHeader>
-            <Form ref={formRef} onSubmit={handleSubmit}>
+            <Form ref={formRef} onSubmit={handleSubmits}>
               <Input
+                control={control}
                 name="username"
                 label="Usuário"
                 type="text"
@@ -66,6 +71,7 @@ const Login: React.FC = () => {
                 required
               />
               <Input
+                control={control}
                 name="password"
                 label="Senha"
                 type="password"
@@ -95,7 +101,7 @@ const Login: React.FC = () => {
 }
 
 export const getServerSideProps: GetServerSideProps = async context => {
-  const { 'wonder-token': token } = parseCookies(context)
+  const { 'megtv-token': token } = parseCookies(context)
 
   if (token) {
     return {

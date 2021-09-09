@@ -15,8 +15,8 @@ const DropdownItem: React.FC<DropdownItemProps> = ({
 }) => {
   return (
     <Container onClick={action}>
-      {Icon && <Icon />}
       <span>{title}</span>
+      {Icon && <Icon />}
     </Container>
   )
 }

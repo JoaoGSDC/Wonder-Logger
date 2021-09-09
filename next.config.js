@@ -4,6 +4,8 @@ module.exports = withImages({
   pageExtensions: ['tsx'],
   poweredByHeader: false,
   esModule: true,
-  webpack5: false,
+  future: {
+    webpack5: true
+  },
   images: {}
 })

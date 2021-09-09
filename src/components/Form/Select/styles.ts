@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { StylesConfig } from 'react-select'
+import { Styles } from 'react-select'
 
 export const Container = styled.div`
   margin: 24px 0;
@@ -10,31 +10,24 @@ export const InputLabel = styled.div`
   display: flex;
   align-items: center;
   font-weight: 500;
-  color: #707070;
-  font-size: 0.85rem;
+  font-size: 1rem;
   user-select: none;
-  margin-bottom: 12px;
 
   svg {
     margin-right: 8px;
-    color: #707070;
   }
 `
 
-export const selectStyles: StylesConfig<any, any> = {
-  placeholder: provided => ({
-    color: '#bababa',
-    userSelect: 'none'
-  }),
+export const selectStyles: Styles<any, true> = {
   container: provided => ({
     ...provided,
-    flex: 1,
-    userSelect: 'none'
+    flex: 1
   }),
   control: (_, state) => ({
+    marginTop: '14px',
     display: 'flex',
     opacity: state.isDisabled ? 0.5 : 1,
-    backgroundColor: '#efefef',
+    backgroundColor: '#eaeaea;',
     border: 0,
     outline: 0,
     height: 44,
@@ -43,34 +36,29 @@ export const selectStyles: StylesConfig<any, any> = {
     paddingRight: 12,
     fontFamily: 'Poppins',
     fontWeight: 400,
-    fontSize: '0.85rem',
+    fontSize: '1rem',
     lineHeight: '28px',
-    width: '100%',
-    userSelect: 'none'
+    width: '100%'
   }),
   indicatorSeparator: () => ({
     display: 'none'
   }),
   menu: provided => ({
     ...provided,
-    boxShadow: '0px 4px 4px rgb(0 0 0 / 5%)',
-    marginTop: -4,
-    backgroundColor: '#eaeaea',
+    marginTop: -8,
+    backgroundColor: '#EFF0F6',
     border: 0,
     outline: 0,
     borderRadius: '0 0 15px 15px',
-    paddingBottom: '12px',
-    fontSize: '0.85rem',
-    userSelect: 'none'
+    paddingBottom: '12px'
   }),
   option: (provided, state) => ({
     ...provided,
     background: state.isSelected
-      ? '#52b032'
+      ? '#114fac'
       : state.isFocused
-      ? 'rgba(82, 176, 50, 0.1)'
+      ? '#E7EDF7'
       : 'transparent',
-    padding: '8px 24px',
-    userSelect: 'none'
+    padding: '8px 24px'
   })
 }

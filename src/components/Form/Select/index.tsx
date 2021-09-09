@@ -1,52 +1,54 @@
-import { forwardRef, useRef } from 'react'
-import { Controller } from 'react-hook-form'
-import { IconBaseProps } from 'react-icons'
-import ReactSelect from 'react-select'
+import { useRef, useEffect } from 'react'
+import { AsyncPaginate as Select } from 'react-select-async-paginate'
+import { useField } from '@unform/core'
 
 import { Container, InputLabel, selectStyles } from './styles'
 
-type SelectProps = {
+interface SelectAsyncProps {
   name: string
-  options: any
-  control: any
-  icon?: React.ComponentType<IconBaseProps>
   label: string
-  placeholder?: string
-  disableSearch?: boolean
+  placeholder: string
+  instanceId: number
+  loadOptions: any
+  additional: any
 }
 
-const Select: React.ForwardRefRenderFunction<any, SelectProps> = (
-  { name, options, control, icon: Icon, label, placeholder, disableSearch },
-  _
-) => {
+const SelectAsync: React.FC<SelectAsyncProps> = ({ name, label, ...rest }) => {
   const selectRef = useRef(null)
+
+  useEffect(() => {
+    console.log(selectRef)
+  }, [selectRef])
+
+  const { fieldName, defaultValue, registerField, error } = useField(name)
+
+  useEffect(() => {
+    registerField({
+      name: fieldName,
+      ref: selectRef.current,
+      getValue: (ref: any) => {
+        console.log(ref)
+        if (!ref.state.value) {
+          return ''
+        }
+        return ref.state.value.value
+      }
+    })
+  }, [fieldName, registerField])
 
   return (
     <Container>
-      <InputLabel>
-        {Icon && <Icon />}
-        {label}
-      </InputLabel>
-      <Controller
-        name={name}
-        control={control}
-        rules={{ required: true }}
-        render={({ field }) => {
-          return (
-            <ReactSelect
-              styles={selectStyles}
-              ref={selectRef}
-              instanceId={200}
-              options={options}
-              {...(placeholder && { placeholder })}
-              {...(disableSearch && { isSearchable: false })}
-              {...field}
-            />
-          )
-        }}
+      <InputLabel>{label}</InputLabel>
+      <Select
+        cacheOptions
+        defaultValue={defaultValue}
+        defaultOptions={[{ value: null, label: 'Nenhum' }]}
+        selectRef={selectRef}
+        styles={selectStyles}
+        {...rest}
       />
     </Container>
   )
 }
 
-export default forwardRef(Select)
+export default SelectAsync

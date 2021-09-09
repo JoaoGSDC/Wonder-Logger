@@ -12,7 +12,7 @@ export const Container = styled.aside<SidebarContainerProps>`
   height: 100vh;
   background: white;
   transition: width 300ms ease-in-out;
-  overflow-x: auto;
+  overflow-x: hidden;
   box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.1);
   z-index: 1;
 
@@ -76,4 +76,11 @@ export const SidebarMenuContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin: 16px 0;
+`
+
+export const HeaderTitle = styled.span`
+  font-size: 1rem;
+  color: #707070;
+  margin-left: 16px;
+  font-weight: 500;
 `

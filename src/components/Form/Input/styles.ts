@@ -2,19 +2,13 @@ import styled from 'styled-components'
 
 import Tooltip from '../Tooltip'
 
-interface InputContainerProps {
-  isFocused: boolean
-  isFilled: boolean
-  isErrored: boolean
-}
-
 export const Container = styled.div`
   &:not(:first-child) {
     margin-top: 24px;
   }
 `
 
-export const InputContainer = styled.div<InputContainerProps>`
+export const InputContainer = styled.div`
   display: flex;
   width: 100%;
   background: #eaeaea;
@@ -29,6 +23,10 @@ export const InputContainer = styled.div<InputContainerProps>`
     outline: none;
     border: 0;
 
+    &:disabled {
+      color: #ccc;
+    }
+
     &::placeholder {
       color: #bababa;
       user-select: none;
@@ -37,10 +35,6 @@ export const InputContainer = styled.div<InputContainerProps>`
     &::-webkit-autofill {
       background: #eaeaea;
     }
-  }
-
-  input:disabled {
-    user-select: none;
   }
 
   input:-webkit-autofill {

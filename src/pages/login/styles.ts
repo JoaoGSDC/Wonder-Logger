@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 import loginBackground from '@assets/login-background.jpg'
+import logo from '@assets/logo-tv-white.png'
 
 export const Container = styled.main`
   background: url(${loginBackground}) no-repeat center;
@@ -65,7 +66,7 @@ export const DialogContainer = styled.div`
     line-height: 68px;
     color: rgba(255, 255, 255, 0.9);
     display: inline-block;
-    max-width: 600px;
+    max-width: 500px;
     font-weight: 400;
     user-select: none;
 
@@ -73,4 +74,12 @@ export const DialogContainer = styled.div`
       display: none;
     }
   }
+`
+
+export const LogoTerraViva = styled.div`
+  width: 180px;
+  height: 60px;
+  background: url(${logo}) no-repeat center;
+  background-size: contain;
+  margin-top: 32px;
 `
