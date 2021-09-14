@@ -57,7 +57,7 @@ const TopBar: React.FC = () => {
             expanded={isExpanded}
             onClick={() => setIsExpanded(!isExpanded)}
           >
-            <RiMenuFoldFill size={20} />
+            <RiMenuFoldFill color={'#fff'} size={20} />
           </MenuToggle>
           <LogoMobile />
           <Title>{dashboardTitle}</Title>

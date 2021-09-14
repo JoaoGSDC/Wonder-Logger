@@ -5,7 +5,7 @@ import Logo from '@assets/logo.png'
 export const Container = styled.header`
   width: 100%;
   height: 70px;
-  background: #fff;
+  background: #11101d;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
   position: relative;
   z-index: 2;
@@ -38,7 +38,7 @@ export const Title = styled.h1`
   font-weight: 500;
   user-select: none;
   margin-left: 24px;
-  color: #707070;
+  color: #fff;
 
   @media (max-width: 576px) {
     margin-left: 8px;
@@ -57,7 +57,7 @@ export const UserContainer = styled.div`
   }
 
   &:hover {
-    background: #eeeeee;
+    background: #33323f;
   }
 `
 
@@ -76,7 +76,7 @@ export const Avatar = styled.div<AvatarProps>`
 
 export const Username = styled.span`
   display: block;
-  color: #707070;
+  color: #fff;
   font-size: 0.8rem;
   font-weight: 500;
   user-select: none;
@@ -95,7 +95,7 @@ export const MenuItem = styled.div`
   cursor: pointer;
 
   &:hover {
-    background: #eeeeee;
+    background: #33323f;
   }
 
   svg {
