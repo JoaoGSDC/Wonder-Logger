@@ -47,10 +47,36 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800"
             rel="stylesheet"
           />
+
+          <link
+            href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css"
+            rel="stylesheet"
+          />
         </Head>
         <body>
           <Main />
           <NextScript />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                const scripts = () => {
+                  const arrow = document.querySelectorAll('.arrow')
+                  
+                  for (let i = 0; i < arrow.length; i++) {
+                    arrow[i].addEventListener('click', e => {
+                      const arrowParent = e.target.parentElement.parentElement // selecting main parent of arrow
+                      arrowParent.classList.toggle('showMenu')
+                    })
+                  }
+                }
+
+                window.onload = scripts
+                window.onchange = scripts
+                document.body.onchange = scripts
+                document.body.onclick = scripts
+              `
+            }}
+          ></script>
         </body>
       </Html>
     )

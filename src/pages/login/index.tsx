@@ -48,13 +48,12 @@ const Login: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Acesso ao sistema - MEGTV</title>
+        <title>Wonder Logger</title>
       </Head>
       <Container>
         <BackgroundOverlay>
           <DialogContainer>
-            <h1>Modelo de Excelência em Gestão</h1>
-            <LogoTerraViva />
+            <h1>Wonder Logger - Central de Logs</h1>
           </DialogContainer>
           <LoginContainer>
             <LoginContainerHeader>
@@ -101,7 +100,7 @@ const Login: React.FC = () => {
 }
 
 export const getServerSideProps: GetServerSideProps = async context => {
-  const { 'megtv-token': token } = parseCookies(context)
+  const { 'wonder-token': token } = parseCookies(context)
 
   if (token) {
     return {

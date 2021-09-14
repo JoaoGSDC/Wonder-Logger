@@ -2,7 +2,7 @@ import axios, { AxiosInstance } from 'axios'
 import { parseCookies } from 'nookies'
 
 export function getAPIClient(ctx?: any): AxiosInstance {
-  const { 'megtv-token': token } = parseCookies(ctx)
+  const { 'wonder-token': token } = parseCookies(ctx)
 
   const data = parseCookies()
 

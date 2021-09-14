@@ -33,7 +33,7 @@ export const AuthProvider = ({ children }) => {
   const isAuthenticated = !!user
 
   useEffect(() => {
-    const { 'megtv-token': token } = parseCookies()
+    const { 'wonder-token': token } = parseCookies()
 
     if (!token) {
       Router.pathname !== '/login' && Router.push('/login')
@@ -41,7 +41,7 @@ export const AuthProvider = ({ children }) => {
   }, [])
 
   useEffect(() => {
-    const { 'megtv-token': token } = parseCookies()
+    const { 'wonder-token': token } = parseCookies()
 
     const updateUserInfo = async () => {
       await setUserInfo()
@@ -54,14 +54,16 @@ export const AuthProvider = ({ children }) => {
 
   const signIn = async ({ username, password }: SignInData) => {
     try {
-      const response = await api.post('/session/user', {
-        username,
-        password
-      })
+      // const response = await api.post('/session/user', {
+      //   username,
+      //   password
+      // })
 
-      const { token } = response.data
-
-      setCookie(undefined, 'megtv-token', token, {
+      const { token } = {
+        token:
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiRGF2aWQgVG9sZW50aW5vIiwidXNlcm5hbWUiOiJkYXZpZHRvbGVudGlubyIsInBlcm1pc3Npb24iOiJhZG1pbiJ9.BuRX2xsEbO7rCyzH4rva_nRI_vLXGX40zqS_2cX9XBY'
+      }
+      setCookie(undefined, 'wonder-token', token, {
         maxAge: 60 * 60 * 24
       })
 
@@ -97,9 +99,15 @@ export const AuthProvider = ({ children }) => {
 
   const setUserInfo = async () => {
     try {
-      const response = await api.get('/session')
+      // const response = await api.get('/session')
 
-      const { user } = response.data
+      // const { user } = response.data
+      const user = {
+        code: '008058',
+        name: 'David',
+        nickname: 'David',
+        picture: null
+      }
 
       setUser(user)
     } catch (e) {}
