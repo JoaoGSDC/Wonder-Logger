@@ -45,7 +45,7 @@ export const Container = styled.aside<SidebarContainerProps>`
     }
 
     .logo_name {
-      font-size: 22px;
+      font-size: 19px;
       color: #fff;
       font-weight: 600;
       transition: 0.3s ease;
@@ -86,8 +86,13 @@ export const Container = styled.aside<SidebarContainerProps>`
       transition: all 0.3s ease;
     }
 
+    .arrow{
+      display: ${props => (props.expanded ? 'block' : 'none')};
+    }
+
     li.showMenu i.arrow {
       transform: rotate(-180deg);
+      
       display: ${props => (props.expanded ? 'block' : 'none')};
     }
 
@@ -190,8 +195,8 @@ export const Container = styled.aside<SidebarContainerProps>`
   }
 
   .profile-details img {
-    height: 52px;
-    width: 52px;
+    height: 40px;
+    width: 40px;
     object-fit: cover;
     border-radius: 16px;
     margin: 0 14px 0 12px;

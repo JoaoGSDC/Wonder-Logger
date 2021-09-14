@@ -5,14 +5,16 @@ import { SidebarContext } from '@contexts/SidebarContext'
 import { Container } from './styles'
 
 import Profile from '@assets/no-avatar.jpg'
+import { AuthContext } from '@contexts/AuthContext'
 
 const Sidebar: React.FC = () => {
+  const { user } = useContext(AuthContext)
   const { isExpanded } = useContext(SidebarContext)
 
   return (
     <Container expanded={isExpanded}>
       <div className="logo-details">
-        <i className="bx bxl-c-plus-plus"></i>
+            <i className='bx bxl-javascript'></i>
         <span className="logo_name">Wonder Logger</span>
       </div>
       <ul className="nav-links">
@@ -175,8 +177,8 @@ const Sidebar: React.FC = () => {
               <img src={Profile} alt="profileImg" />
             </div>
             <div className="name-job">
-              <div className="profile_name">Rafael Vieira</div>
-              <div className="job">Web Desginer</div>
+              <div className="profile_name">{user?.name}</div>
+              <div className="job">{user?.job}</div>
             </div>
             <i className="bx bx-log-out"></i>
           </div>

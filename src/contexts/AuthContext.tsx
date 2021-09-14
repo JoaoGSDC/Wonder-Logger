@@ -15,6 +15,7 @@ type UserData = {
   code: string
   name: string
   nickname?: string
+  job: string
   picture: string
 }
 
@@ -104,9 +105,10 @@ export const AuthProvider = ({ children }) => {
       // const { user } = response.data
       const user = {
         code: '008058',
-        name: 'David',
-        nickname: 'David',
-        picture: null
+        name: 'David Tolentino',
+        nickname: 'David Tolentino',
+        picture: null,
+        job: 'Desenvolvedor Web'
       }
 
       setUser(user)
