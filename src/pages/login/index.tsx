@@ -13,8 +13,7 @@ import {
   Container,
   DialogContainer,
   LoginContainer,
-  LoginContainerHeader,
-  LogoTerraViva
+  LoginContainerHeader
 } from './styles'
 
 import { GetServerSideProps } from 'next'
@@ -28,7 +27,7 @@ type SignInData = {
 
 const Login: React.FC = () => {
   const [signInLoading, setSignInLoading] = useState<boolean>(false)
-  const { handleSubmit, control, setValue } = useForm()
+  const { control } = useForm()
 
   const formRef = useRef<FormHandles>(null)
 
