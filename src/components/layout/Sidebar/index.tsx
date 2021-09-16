@@ -6,20 +6,21 @@ import { Container } from './styles'
 
 import Profile from '@assets/no-avatar.jpg'
 import { AuthContext } from '@contexts/AuthContext'
+import Router from 'next/router'
 
 const Sidebar: React.FC = () => {
-  const { user } = useContext(AuthContext)
+  const { user, signOut } = useContext(AuthContext)
   const { isExpanded } = useContext(SidebarContext)
 
   return (
     <Container expanded={isExpanded}>
       <div className="logo-details">
-            <i className='bx bxl-javascript'></i>
+        <i className="bx bxl-javascript"></i>
         <span className="logo_name">Wonder Logger</span>
       </div>
       <ul className="nav-links">
         <li>
-          <a href="#">
+          <a onClick={() => Router.push('/')}>
             <i className="bx bx-grid-alt"></i>
             <span className="link_name">Dashboard</span>
           </a>
@@ -33,7 +34,7 @@ const Sidebar: React.FC = () => {
         </li>
         <li>
           <div className="iocn-link">
-            <a href="#">
+            <a onClick={() => Router.push('/teste')}>
               <i className="bx bx-collection"></i>
               <span className="link_name">Category</span>
             </a>
@@ -81,6 +82,7 @@ const Sidebar: React.FC = () => {
             </li>
           </ul>
         </li>
+        {/* 
         <li>
           <a href="#">
             <i className="bx bx-pie-chart-alt-2"></i>
@@ -170,7 +172,7 @@ const Sidebar: React.FC = () => {
               </a>
             </li>
           </ul>
-        </li>
+        </li> */}
         <li>
           <div className="profile-details">
             <div className="profile-content">
@@ -180,7 +182,7 @@ const Sidebar: React.FC = () => {
               <div className="profile_name">{user?.name}</div>
               <div className="job">{user?.job}</div>
             </div>
-            <i className="bx bx-log-out"></i>
+            <i onClick={() => signOut()} className="bx bx-log-out"></i>
           </div>
         </li>
       </ul>
