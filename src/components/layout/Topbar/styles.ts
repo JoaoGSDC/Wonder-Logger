@@ -5,7 +5,7 @@ import Logo from '@assets/logo.png'
 export const Container = styled.header`
   width: 100%;
   height: 70px;
-  background: #11101d;
+  background: #3f3b52;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
   position: relative;
   z-index: 2;

@@ -5,7 +5,7 @@ export const Container = styled.section`
   flex-direction: row;
   width: 100%;
   min-height: 100vh;
-  background: #eaeaea;
+  background: #2e2b3e;
 `
 
 export const Main = styled.main`

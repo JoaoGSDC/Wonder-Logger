@@ -14,7 +14,7 @@ export const Container = styled.aside<SidebarContainerProps>`
   box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.1);
   top: 0;
   left: 0;
-  background: #11101d;
+  background: #3f3b52;
   z-index: 100;
   transition: all 0.5s ease;
 
@@ -245,7 +245,7 @@ export const Container = styled.aside<SidebarContainerProps>`
   }
   .home-section .home-content .bx-menu,
   .home-section .home-content .text {
-    color: #11101d;
+    color: #3f3b52;
     font-size: 35px;
   }
   .home-section .home-content .bx-menu {
