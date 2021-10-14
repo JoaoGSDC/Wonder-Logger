@@ -19,24 +19,12 @@ const Dashboard: React.FC = () => {
 
       <Container>
         <div style={{ display: 'flex', width: '100%' }}>
-          <Card
-            style={{
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center'
-            }}
-          >
+          <Card>
             <H3Success>Total de Logs com sucesso</H3Success>
             <H1Success>101</H1Success>
           </Card>
 
-          <Card
-            style={{
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center'
-            }}
-          >
+          <Card>
             <H3Err>Total de Logs com erro</H3Err>
             <H1Err>101</H1Err>
           </Card>

@@ -1,9 +1,10 @@
 import React from 'react'
 import { Container } from './styles'
+import CSS from 'csstype'
 
 interface IPropsDTO {
-  style?: any
-  children: unknown
+  style?: CSS.Properties
+  children: Element[]
 }
 
 const Card: React.FC = ({ children, style = {} }: IPropsDTO) => {
