@@ -2,13 +2,14 @@ import React from 'react'
 import { Container } from './styles'
 
 interface IPropsDTO {
+  style?: any
   children: unknown
 }
 
-const Card: React.FC = ({ children }: IPropsDTO) => {
+const Card: React.FC = ({ children, style = {} }: IPropsDTO) => {
   return (
     <>
-      <Container>{children}</Container>
+      <Container style={style}>{children}</Container>
     </>
   )
 }

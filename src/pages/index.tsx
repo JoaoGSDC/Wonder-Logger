@@ -4,7 +4,13 @@ import VerticalBar from '@components/Graphics/VerticalBar'
 import Title from '@components/Title'
 import { GetServerSideProps } from 'next'
 import { parseCookies } from 'nookies'
-import { Container } from '../styles/DashboardStyles'
+import {
+  Container,
+  H1Err,
+  H1Success,
+  H3Err,
+  H3Success
+} from '../styles/DashboardStyles'
 
 const Dashboard: React.FC = () => {
   return (
@@ -12,6 +18,30 @@ const Dashboard: React.FC = () => {
       <Title context="Início" />
 
       <Container>
+        <div style={{ display: 'flex', width: '100%' }}>
+          <Card
+            style={{
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}
+          >
+            <H3Success>Total de Logs com sucesso</H3Success>
+            <H1Success>101</H1Success>
+          </Card>
+
+          <Card
+            style={{
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}
+          >
+            <H3Err>Total de Logs com erro</H3Err>
+            <H1Err>101</H1Err>
+          </Card>
+        </div>
+
         <Card>
           <VerticalBar />
         </Card>

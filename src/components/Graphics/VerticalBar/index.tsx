@@ -33,7 +33,12 @@ const data = {
 
 const VerticalBar: React.FC = () => (
   <>
-    <Bar data={data} />
+    <Bar
+      data={data}
+      options={{
+        responsive: true
+      }}
+    />
   </>
 )
 
