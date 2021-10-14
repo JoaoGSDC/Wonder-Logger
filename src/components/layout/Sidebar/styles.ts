@@ -86,13 +86,13 @@ export const Container = styled.aside<SidebarContainerProps>`
       transition: all 0.3s ease;
     }
 
-    .arrow{
+    .arrow {
       display: ${props => (props.expanded ? 'block' : 'none')};
     }
 
     li.showMenu i.arrow {
       transform: rotate(-180deg);
-      
+
       display: ${props => (props.expanded ? 'block' : 'none')};
     }
 
@@ -260,5 +260,10 @@ export const Container = styled.aside<SidebarContainerProps>`
     // .sidebar.close .nav-links li .sub-menu {
     //   display: none;
     // }
+  }
+
+  @media (max-width: 600px) {
+    width: ${props => (props.expanded ? '240px' : '0px !important')};
+    left: ${props => (props.expanded ? '0px' : '-240px !important')};
   }
 `
