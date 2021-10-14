@@ -23,6 +23,7 @@ type StructurePositionProps = {
 
 type StructureProps = {
   id: string
+  user_id: any
   account_id: AccountProps
   created_at: string
   updated_at: string
