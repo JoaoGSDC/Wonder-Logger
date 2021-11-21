@@ -20,7 +20,8 @@ export const TitleContainer = styled.div`
 `
 
 export const Title = styled.h1`
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+  color: white;
   font-weight: 500;
   user-select: none;
   margin-left: 4px;

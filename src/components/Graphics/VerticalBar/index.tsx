@@ -31,10 +31,10 @@ const data = {
   }
 } */
 
-const VerticalBar: React.FC = () => (
+const VerticalBar: React.FC<any> = ({ graph }) => (
   <>
     <Bar
-      data={data}
+      data={graph || data}
       options={{
         responsive: true
       }}

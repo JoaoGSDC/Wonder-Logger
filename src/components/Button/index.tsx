@@ -1,24 +1,36 @@
-import { IconBaseProps } from 'react-icons/lib'
+import { ButtonHTMLAttributes } from 'react'
+import { IconBaseProps } from 'react-icons'
 
-import { Container } from './styles'
+import Loading from '@components/Loading'
 
-type ButtonProps = {
-  label: string
-  color?: 'primary' | 'secondary' | 'outline-primary'
-  icon: React.ComponentType<IconBaseProps>
-  onClick?: () => any
+import { Container, RemovableButton } from './styles'
+
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  icon?: React.ComponentType<IconBaseProps>
+  loading?: boolean
+  color?: 'primary' | 'secondary'
+  variant?: 'contained' | 'outlined' | 'text'
+  removable?: () => any
 }
 
 const Button: React.FC<ButtonProps> = ({
-  label,
-  color,
   icon: Icon,
-  onClick
+  children,
+  loading,
+  removable,
+  ...rest
 }) => {
   return (
-    <Container onClick={onClick} color={color}>
-      {Icon && <Icon size={18} />}
-      {label}
+    <Container {...rest}>
+      {!loading ? (
+        <>
+          {Icon && <Icon size={16} />}
+          {children}
+        </>
+      ) : (
+        <Loading size="20px" color="white" />
+      )}
+      {removable && <RemovableButton onClick={removable}>x</RemovableButton>}
     </Container>
   )
 }

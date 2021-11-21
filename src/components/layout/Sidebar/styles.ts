@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 import Logo from '@assets/logo.png'
-import LogoMEG from '@assets/logo-meg-tv.png'
 
 type SidebarContainerProps = {
   expanded: boolean
@@ -100,6 +99,7 @@ export const Container = styled.aside<SidebarContainerProps>`
       display: flex;
       align-items: center;
       text-decoration: none;
+      cursor: pointer;
     }
 
     li a .link_name {

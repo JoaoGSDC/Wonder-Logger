@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 import Logo from '@assets/logo.png'
-import LogoMEG from '@assets/logo-meg-tv.png'
 
 export const LogoContainer = styled.div`
   width: 100%;
@@ -28,7 +27,7 @@ export const LogoSmall = styled.div`
 `
 
 export const LogoBig = styled.div`
-  background: url(${LogoMEG}) no-repeat center;
+  background: url(${Logo}) no-repeat center;
   width: 80px;
   height: 28px;
   background-size: contain;
