@@ -27,12 +27,32 @@ const Sidebar: React.FC = () => {
           <ul className="sub-menu">
             <li>
               <a className="link_name" href="#">
-                Category
+                Dashboard
               </a>
             </li>
           </ul>
         </li>
         <li>
+          <div className="iocn-link">
+            <a onClick={() => Router.push('/manual')}>
+              <i className="bx bx-collection"></i>
+              <span className="link_name">Dados Manuais</span>
+            </a>
+            <i className="bx bxs-chevron-down arrow"></i>
+          </div>
+          <ul className="sub-menu">
+            <li>
+              <a
+                onClick={() => Router.push('/manual')}
+                className="link_name"
+                href="#"
+              >
+                Dados Manuais
+              </a>
+            </li>
+          </ul>
+        </li>
+        {/* <li>
           <div className="iocn-link">
             <a onClick={() => Router.push('/teste')}>
               <i className="bx bx-collection"></i>
@@ -81,7 +101,7 @@ const Sidebar: React.FC = () => {
               <a href="#">Card Design</a>
             </li>
           </ul>
-        </li>
+        </li> */}
         {/* 
         <li>
           <a href="#">

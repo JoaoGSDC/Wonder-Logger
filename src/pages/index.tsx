@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Card from '@components/Card'
 import VerticalBar from '@components/Graphics/VerticalBar'
 import Title from '@components/Title'
@@ -14,7 +14,22 @@ import {
 } from '../styles/DashboardStyles'
 import DoughnutChart from '@components/Graphics/DoughnutChart'
 
+import { greenGraph, randomGraph, redGraph } from './graphsConfigs'
+
 const Dashboard: React.FC = () => {
+  const [logSuccess, setLogSuccess] = useState(0)
+  const [logError, setLogError] = useState(0)
+
+  useEffect(() => {
+    const getLogs = async () => {
+      const logErrorStorage = localStorage.getItem('error')
+      setLogError(404 + Number(logErrorStorage))
+      setLogSuccess(200)
+    }
+
+    getLogs()
+  }, [])
+
   return (
     <>
       <Title context="Início" />
@@ -25,10 +40,10 @@ const Dashboard: React.FC = () => {
             <H3Success>Total de Logs com sucesso</H3Success>
 
             <H1Container>
-              <H1Success>200</H1Success>
+              <H1Success>{logSuccess}</H1Success>
               <DoughnutChart
                 label="# of Votes"
-                dataNumbers={[200, 404]}
+                dataNumbers={[logSuccess, logError]}
                 mainColor="#55d446"
               />
             </H1Container>
@@ -38,10 +53,10 @@ const Dashboard: React.FC = () => {
             <H3Err>Total de Logs com erro</H3Err>
 
             <H1Container>
-              <H1Err>404</H1Err>
+              <H1Err>{logError}</H1Err>
               <DoughnutChart
                 label="# of Votes"
-                dataNumbers={[404, 200]}
+                dataNumbers={[logError, logSuccess]}
                 mainColor="#e64343"
               />
             </H1Container>
@@ -49,19 +64,19 @@ const Dashboard: React.FC = () => {
         </div>
 
         <Card>
-          <VerticalBar />
+          <VerticalBar graph={redGraph} />
         </Card>
         <Card>
-          <VerticalBar />
+          <VerticalBar graph={randomGraph} />
         </Card>
         <Card>
-          <VerticalBar />
+          <VerticalBar graph={randomGraph} />
         </Card>
         <Card>
-          <VerticalBar />
+          <VerticalBar graph={randomGraph} />
         </Card>
         <Card>
-          <VerticalBar />
+          <VerticalBar graph={greenGraph} />
         </Card>
       </Container>
     </>
