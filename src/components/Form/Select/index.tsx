@@ -16,10 +16,6 @@ interface SelectAsyncProps {
 const SelectAsync: React.FC<SelectAsyncProps> = ({ name, label, ...rest }) => {
   const selectRef = useRef(null)
 
-  useEffect(() => {
-    console.log(selectRef)
-  }, [selectRef])
-
   const { fieldName, defaultValue, registerField, error } = useField(name)
 
   useEffect(() => {
@@ -27,7 +23,6 @@ const SelectAsync: React.FC<SelectAsyncProps> = ({ name, label, ...rest }) => {
       name: fieldName,
       ref: selectRef.current,
       getValue: (ref: any) => {
-        console.log(ref)
         if (!ref.state.value) {
           return ''
         }

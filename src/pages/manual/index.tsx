@@ -114,9 +114,10 @@ const Manual: React.FC = () => {
       //   dateHour: data?.dateHour,
       //   message: data?.message
       // }
-
-      console.log(response.data)
-    } catch (err) {}
+      Router.push('/')
+    } catch (err) {
+      Router.push('/')
+    }
   }
 
   return (

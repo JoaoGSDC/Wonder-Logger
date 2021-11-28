@@ -7,17 +7,19 @@ type FieldContainerProps = {
   label: string
   icon?: React.ComponentType<IconBaseProps>
   type?: string
+  color?: string
 }
 
 const FieldContainer: React.FC<FieldContainerProps> = ({
   label,
   icon: Icon,
   children,
-  type
+  type,
+  color
 }) => {
   return (
     <Container type={type}>
-      <InputLabel>
+      <InputLabel color={color}>
         {Icon && <Icon />}
         {label}
       </InputLabel>
