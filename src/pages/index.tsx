@@ -20,6 +20,10 @@ const Dashboard: React.FC = () => {
   const [logSuccess, setLogSuccess] = useState(0)
   const [logError, setLogError] = useState(0)
 
+  const [graph1, setGraph1] = useState(randomGraph)
+  const [graph2, setGraph2] = useState(randomGraph)
+  const [graph3, setGraph3] = useState(randomGraph)
+
   useEffect(() => {
     const getLogs = async () => {
       const logErrorStorage = localStorage.getItem('error')
@@ -28,6 +32,12 @@ const Dashboard: React.FC = () => {
     }
 
     getLogs()
+
+    setInterval(() => {
+      setGraph1(randomGraph)
+      setGraph2(randomGraph)
+      setGraph3(randomGraph)
+    }, 4000)
   }, [])
 
   return (
@@ -67,13 +77,13 @@ const Dashboard: React.FC = () => {
           <VerticalBar graph={redGraph} />
         </Card>
         <Card>
-          <VerticalBar graph={randomGraph} />
+          <VerticalBar graph={graph1} />
         </Card>
         <Card>
-          <VerticalBar graph={randomGraph} />
+          <VerticalBar graph={graph2} />
         </Card>
         <Card>
-          <VerticalBar graph={randomGraph} />
+          <VerticalBar graph={graph3} />
         </Card>
         <Card>
           <VerticalBar graph={greenGraph} />

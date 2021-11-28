@@ -15,6 +15,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   disabled?: boolean
   defaultValue?: any
   maxValue?: number
+  color?: string
 }
 
 const Input: React.FC<InputProps> = ({
@@ -26,6 +27,7 @@ const Input: React.FC<InputProps> = ({
   type,
   defaultValue,
   maxValue,
+  color,
   ...rest
 }) => {
   const parseInputNumberTypeValue = (value: string) => {
@@ -59,7 +61,7 @@ const Input: React.FC<InputProps> = ({
   }
 
   return (
-    <FieldContainer label={label} icon={icon} type={type}>
+    <FieldContainer label={label} color={color} icon={icon} type={type}>
       <Controller
         control={control}
         name={name}
