@@ -18,7 +18,7 @@ import { api } from '@services/api'
 
 const Manual: React.FC = () => {
   const [file, setFile] = useState<unknown>()
-  const [json, setJson] = useState<unknown>()
+  const [json, setJson] = useState<any>()
   const { control, handleSubmit } = useForm()
 
   function readTextFile(file, callback) {
@@ -90,8 +90,11 @@ const Manual: React.FC = () => {
         await json.forEach(async element => {
           await api.post('/importException', element)
         })
+
+        Router.push(`/manual/${json[0]?.software}/${json[0]?.versao}`)
       } else {
         await api.post('/importException', json)
+        Router.push(`/manual/${json?.software}/${json?.versao}`)
       }
       return {}
     }
@@ -107,6 +110,7 @@ const Manual: React.FC = () => {
         return alert('Dados Incompletos')
 
       const response = await api.post('/importException', data)
+      Router.push(`/manual/${data?.software}/${data?.versao}`)
       // {
       //   software: data?.software,
       //   versao: data?.versao,
@@ -114,7 +118,6 @@ const Manual: React.FC = () => {
       //   dateHour: data?.dateHour,
       //   message: data?.message
       // }
-      Router.push('/')
     } catch (err) {
       Router.push('/')
     }

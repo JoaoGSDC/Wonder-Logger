@@ -25,6 +25,9 @@ export const H1Success = styled.h1`
 export const H3Success = styled.h3`
   color: #55d446;
 `
+export const H3Label = styled.h3`
+  color: ${props => (props.color ? props.color : '#55d446')};
+`
 
 export const H1Err = styled.h1`
   color: #e64343;
