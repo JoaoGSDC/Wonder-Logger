@@ -1,48 +1,72 @@
-import { useRef, useEffect } from 'react'
-import { AsyncPaginate as Select } from 'react-select-async-paginate'
-import { useField } from '@unform/core'
+import FormHelperText from '@mui/material/FormHelperText'
+import { Controller } from 'react-hook-form'
+import Select, { Props as SelectProps } from 'react-select'
 
-import { Container, InputLabel, selectStyles } from './styles'
+import FieldContainer from '../FieldContainer'
+import { generateSelectStyles, SelectLabel } from './styles'
 
-interface SelectAsyncProps {
+interface SelectSimpleProps extends SelectProps {
   name: string
   label: string
   placeholder: string
   instanceId: number
-  loadOptions: any
-  additional: any
+  control?: any
+  isDisabled?: boolean
+  options?: any
+  valueOnly?: boolean
 }
 
-const SelectAsync: React.FC<SelectAsyncProps> = ({ name, label, ...rest }) => {
-  const selectRef = useRef(null)
-
-  const { fieldName, defaultValue, registerField, error } = useField(name)
-
-  useEffect(() => {
-    registerField({
-      name: fieldName,
-      ref: selectRef.current,
-      getValue: (ref: any) => {
-        if (!ref.state.value) {
-          return ''
-        }
-        return ref.state.value.value
-      }
-    })
-  }, [fieldName, registerField])
-
+const SelectAsync: React.FC<SelectSimpleProps> = ({
+  defaultValue,
+  label,
+  name,
+  control,
+  isDisabled,
+  options,
+  valueOnly,
+  ...rest
+}) => {
   return (
-    <Container>
-      <InputLabel>{label}</InputLabel>
-      <Select
-        cacheOptions
-        defaultValue={defaultValue}
-        defaultOptions={[{ value: null, label: 'Nenhum' }]}
-        selectRef={selectRef}
-        styles={selectStyles}
-        {...rest}
+    <FieldContainer>
+      <Controller
+        control={control}
+        name={name}
+        render={({ field, fieldState }) => {
+          const error: any = fieldState.error
+
+          return (
+            <>
+              <Select
+                isDisabled={isDisabled}
+                styles={generateSelectStyles(error)}
+                value={
+                  valueOnly
+                    ? options?.find(c => c?.value === field?.value)
+                    : field?.value
+                }
+                onChange={val =>
+                  valueOnly ? field.onChange(val.value) : field.onChange(val)
+                }
+                {...(options && {
+                  options,
+                  defaultValue: valueOnly ? options[0]?.value : defaultValue
+                })}
+                {...rest}
+              />
+              {!!error && (
+                <FormHelperText error={!!error}>
+                  {error?.message}
+                </FormHelperText>
+              )}
+            </>
+          )
+        }}
+        {...(options && {
+          defaultValue: valueOnly ? options[0]?.value : defaultValue
+        })}
       />
-    </Container>
+      <SelectLabel className="selectLabel">{label}</SelectLabel>
+    </FieldContainer>
   )
 }
 

@@ -32,11 +32,11 @@ const Sidebar: React.FC = () => {
             </li>
           </ul>
         </li>
-        <li>
+        {/* <li>
           <div className="iocn-link">
             <a onClick={() => Router.push('/manual')}>
               <i className="bx bx-collection"></i>
-              <span className="link_name">Dados Manuais</span>
+              <span className="link_name">Dados</span>
             </a>
             <i className="bx bxs-chevron-down arrow"></i>
           </div>
@@ -50,8 +50,17 @@ const Sidebar: React.FC = () => {
                 Dados Manuais
               </a>
             </li>
+            <li>
+              <a
+                onClick={() => Router.push('/lista/')}
+                className="link_name"
+                href="#"
+              >
+                Lista Software
+              </a>
+            </li>
           </ul>
-        </li>
+        </li> */}
         {/* <li>
           <div className="iocn-link">
             <a onClick={() => Router.push('/teste')}>
@@ -193,7 +202,7 @@ const Sidebar: React.FC = () => {
             </li>
           </ul>
         </li> */}
-        <li>
+        {/* <li>
           <div className="profile-details">
             <div className="profile-content">
               <img src={Profile} alt="profileImg" />
@@ -204,7 +213,7 @@ const Sidebar: React.FC = () => {
             </div>
             <i onClick={() => signOut()} className="bx bx-log-out"></i>
           </div>
-        </li>
+        </li> */}
       </ul>
     </Container>
   )

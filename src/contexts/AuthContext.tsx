@@ -36,9 +36,9 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const { 'wonder-token': token } = parseCookies()
 
-    if (!token) {
-      Router.pathname !== '/login' && Router.push('/login')
-    }
+    // if (!token) {
+    //   Router.pathname !== '/login' && Router.push('/login')
+    // }
   }, [])
 
   useEffect(() => {

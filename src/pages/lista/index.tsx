@@ -27,7 +27,6 @@ import {
   TableHead
 } from '@components/Form/Tables'
 import TableRowLink from '@components/Form/Tables/TableRowLink'
-import DefaultAlert from '@lib/Alerts/DefaultAlert'
 
 const Lista: React.FC = () => {
   const [software, setSoftware] = useState([])
@@ -46,7 +45,6 @@ const Lista: React.FC = () => {
           return software
         })
 
-        console.log(data)
         setSoftwares(
           data.length
             ? [{ value: null, label: 'Selecione uma opção!' }, ...data]
@@ -60,9 +58,6 @@ const Lista: React.FC = () => {
   }, [])
 
   const submit = async data => {
-    if (!data.software)
-      return DefaultAlert('warning', 'Selecione o Software', '')
-
     const { data: versions } = await api.get(`/getversion/${data.software}/`)
     console.log(versions)
     setSoftware(versions)
@@ -131,25 +126,31 @@ const Lista: React.FC = () => {
                       <TableHead>
                         <TableRow style={{ cursor: 'default' }}>
                           <TableCell>Software</TableCell>
-                          <TableCell align="right">Versão</TableCell>
-                          {/* <TableCell align="right">Total Exceptions</TableCell> */}
+                          <TableCell align="center">Versão</TableCell>
+                          <TableCell align="right">Total Exceptions</TableCell>
                         </TableRow>
                       </TableHead>
                       <TableBody>
-                        {software.map((software, i) => (
-                          <TableRowLink
-                            link={`/lista/${software?.software?.id}/${software.id}`}
-                            key={i}
-                          >
-                            <TableCell>
-                              {software?.software?.software}
-                            </TableCell>
-                            <TableCell align="right">
-                              {software.version}
-                            </TableCell>
-                            {/* <TableCell align="right">432</TableCell> */}
-                          </TableRowLink>
-                        ))}
+                        <TableRowLink link={`/lista/${1}/${1}`} key={1}>
+                          <TableCell>Wonder Logger</TableCell>
+                          <TableCell align="center">v1.2</TableCell>
+                          <TableCell align="right">432</TableCell>
+                        </TableRowLink>
+                        <TableRowLink link={`/lista/${1}/${1}`} key={1}>
+                          <TableCell>Wonder Logger</TableCell>
+                          <TableCell align="center">v1.2</TableCell>
+                          <TableCell align="right">432</TableCell>
+                        </TableRowLink>
+                        <TableRowLink link={`/lista/${1}/${1}`} key={1}>
+                          <TableCell>Wonder Logger</TableCell>
+                          <TableCell align="center">v1.2</TableCell>
+                          <TableCell align="right">432</TableCell>
+                        </TableRowLink>
+                        <TableRowLink link={`/lista/${1}/${1}`} key={1}>
+                          <TableCell>Wonder Logger</TableCell>
+                          <TableCell align="center">v1.2</TableCell>
+                          <TableCell align="right">432</TableCell>
+                        </TableRowLink>
                       </TableBody>
                     </Table>
                   </TableContainer>

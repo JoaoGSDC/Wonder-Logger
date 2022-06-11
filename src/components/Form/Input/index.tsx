@@ -15,7 +15,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   disabled?: boolean
   defaultValue?: any
   maxValue?: number
-  color?: string
+  color?: 'error' | 'primary' | 'secondary' | 'info' | 'success' | 'warning'
 }
 
 const Input: React.FC<InputProps> = ({

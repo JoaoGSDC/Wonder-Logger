@@ -9,9 +9,9 @@ const theme = {
   },
   palette: {
     primary: {
-      main: '#52b032',
+      main: '#2e2b3e',
       contrastText: 'white',
-      light: '#52b032'
+      light: '#2e2b3e'
     },
     secondary: {
       main: '#f45302',

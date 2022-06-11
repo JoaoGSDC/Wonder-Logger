@@ -1,28 +1,36 @@
-import { IconBaseProps } from 'react-icons/lib'
+import { FormControlProps as MUIFormControlProps } from '@mui/material/FormControl'
 
-import InputLabel from './InputLabel'
 import { Container } from './styles'
-
-type FieldContainerProps = {
-  label: string
-  icon?: React.ComponentType<IconBaseProps>
+interface FieldContainerProps extends MUIFormControlProps {
   type?: string
-  color?: string
+  label?: string
+  icon?: any
+  noMargin?: boolean
 }
 
 const FieldContainer: React.FC<FieldContainerProps> = ({
-  label,
-  icon: Icon,
   children,
   type,
-  color
+  noMargin,
+  sx,
+  ...rest
 }) => {
   return (
-    <Container type={type}>
-      <InputLabel color={color}>
-        {Icon && <Icon />}
-        {label}
-      </InputLabel>
+    <Container
+      {...rest}
+      sx={{
+        display: 'flex',
+        ...(!noMargin && {
+          marginBottom: '42px !important',
+          '&:first-of-type': {
+            marginTop: '18px'
+          }
+        }),
+        ...sx
+      }}
+      fullWidth
+      type={type}
+    >
       {children}
     </Container>
   )

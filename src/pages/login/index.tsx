@@ -61,7 +61,7 @@ const Login: React.FC = () => {
             </LoginContainerHeader>
             <Form ref={formRef} onSubmit={handleSubmits}>
               <Input
-                color="#000"
+                // color="#000"
                 control={control}
                 name="username"
                 label="Usuário"
@@ -70,7 +70,7 @@ const Login: React.FC = () => {
                 required
               />
               <Input
-                color="#000"
+                // color="#000"
                 control={control}
                 name="password"
                 label="Senha"
